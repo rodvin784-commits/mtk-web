@@ -7,7 +7,7 @@
 var MTKStore=(function(){
   var KEY='mathlab_db_v1';
   var LEVELS=['mudah','sedang','sulit'];
-  var QUIZ_KBS=['kb3','kb4'];               // KB yang punya kuis
+  var QUIZ_KBS=['kb1','kb2','kb3','kb4'];   // KB yang punya kuis
   var ALL_KBS=['kb1','kb2','kb3','kb4'];
   var KB_NAMES={
     kb1:'KB1 Fungsi Linear',

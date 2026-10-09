@@ -78,7 +78,16 @@
       });
       if(!els.form.value) ok=false;
       els.btn.disabled=!ok;
+      updatePreview();
       return ok;
+    }
+    /* Pratinjau live: f(x), g(x), h(x) — teks polos minimalis */
+    var preview=document.createElement('p');
+    preview.className='muted tight'; preview.setAttribute('data-comp-preview','');
+    els.form.closest('.row').before(preview);
+    function updatePreview(){
+      var n=function(el){ var v=Number(el.value); return isNaN(v)?'—':String(v); };
+      preview.textContent='f(x) = '+n(els.a)+'x + ('+n(els.b)+') • g(x) = '+n(els.c)+'x + ('+n(els.d)+') • h(x) = '+n(els.e)+'x + ('+n(els.ff)+')';
     }
     [els.a,els.b,els.c,els.d,els.e,els.ff].forEach(function(el){ el.addEventListener('input',validate); });
     els.form.addEventListener('change',validate);
@@ -102,8 +111,23 @@
         if(isNaN(xn)) html+='<div class="alert error">Nilai x tidak numerik.</div>';
         else{ var y=r.a*xn+r.b; html+='<div class="alert warn">'+key+'('+xn+') = '+r.a+'×'+xn+'+'+r.b+' = <b>'+y+'</b></div>'; }
       }
-      html+='<p class="muted">Format hasil: “f(x) = … ⇒ hasil” sesuai papan tulis.</p>';
+      html+='<p class="muted">Format hasil sesuai papan tulis.</p>';
       els.out.innerHTML=html;
+      /* Tombol: gambar hasil di grafik bawah (satu halaman, tanpa pindah) */
+      var expr=fmtLin(r.a,r.b);
+      var gb=document.createElement('button');
+      gb.type='button'; gb.className='btn secondary btn-sm'; gb.style.marginTop='8px';
+      gb.textContent='Gambar hasil di grafik bawah';
+      gb.addEventListener('click',function(){
+        var gsec=document.getElementById('graph-kb3');
+        if(!gsec){ return; }
+        var inp=gsec.querySelector('[data-graph-input]');
+        var go=gsec.querySelector('[data-graph-submit]');
+        if(inp) inp.value=expr.replace(/\*\*/g,'^');
+        if(go) go.click();
+        gsec.scrollIntoView({behavior:'smooth'});
+      });
+      els.out.appendChild(gb);
     }
     validate();
   }

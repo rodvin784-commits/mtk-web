@@ -25,38 +25,38 @@
         </div>
         <div class="side-label">MENU</div>
         <a class="side-link" href="index.html"
-          ><span class="ico">🏠</span> Beranda</a
+          >Beranda</a
         >
         <div class="side-label">MATERI KB 1–4</div>
-        <a class="side-link" href="kb1.html"
-          ><span class="ico">📘</span> Fungsi Linear</a
+        <a class="side-link" href="kb1.html" data-kb="kb1"
+          >Fungsi Linear</a
         >
-        <a class="side-link" href="kb2.html"
-          ><span class="ico">📐</span> Fungsi Kuadrat</a
+        <a class="side-link" href="kb2.html" data-kb="kb2"
+          >Fungsi Kuadrat</a
         >
-        <a class="side-link" href="kb3.html"
-          ><span class="ico">🔀</span> Komposisi &amp; Invers</a
+        <a class="side-link" href="kb3.html" data-kb="kb3"
+          >Komposisi &amp; Invers</a
         >
-        <a class="side-link" href="kb4.html"
-          ><span class="ico">🎯</span> Program Linear</a
+        <a class="side-link" href="kb4.html" data-kb="kb4"
+          >Program Linear</a
         >
-        <div class="side-label">FITUR CEPAT</div>
+        <div class="side-label">TOOLS</div>
         <a class="side-link" href="kb3.html#comp-kb3"
-          ><span class="ico">🔢</span> Kalkulator Komposisi</a
+          >Kalkulator Komposisi</a
         >
         <a class="side-link" href="kb1.html#graph-kb1"
-          ><span class="ico">📈</span> Grafik Fungsi</a
+          >Grafik Fungsi</a
         >
         <a class="side-link" href="kb3.html#quiz-kb3"
-          ><span class="ico">📝</span> Kuis Bertingkat
+          >Kuis Bertingkat
           <span class="pill">Gas!</span></a
         >
         <div class="side-label">LAINNYA</div>
         <a class="side-link active" href="profil.html"
-          ><span class="ico">🏆</span> Papan Skor</a
+          >Papan Skor</a
         >
         <a class="side-link" href="developer.html"
-          ><span class="ico">🧑‍💻</span> Profil Dev</a
+          >Profil Dev</a
         >
         <div class="target-card">
           <h4>Misi Minggu Ini</h4>
@@ -118,15 +118,22 @@
           <div class="card section">
             <h2>Ringkasan Skor Lokal</h2>
             <p class="note">
-              Skor terbaik per tingkat (kuis KB3 &amp; KB4), plus aktivitas
-              membuka materi. KB1 &amp; KB2 hanya materi + contoh, tanpa kuis.
+              Skor terbaik per tingkat kuis (KB1 sampai KB4), plus aktivitas
+              membuka materi.
             </p>
             <div id="summary"><p class="muted">Memuat…</p></div>
             <div class="row mt10">
               <button class="btn ghost" id="btn-reset">
                 Reset Skor &amp; Kemajuan</button
+              ><button class="btn secondary" id="btn-print">Cetak Ringkasan</button
               ><a class="btn secondary" href="index.html">Kembali</a>
             </div>
+          </div>
+
+          <div class="card section">
+            <h2>Riwayat Percobaan</h2>
+            <p class="note">5 percobaan terakhir per tingkat kuis.</p>
+            <div id="history"><p class="muted">Memuat…</p></div>
           </div>
 
           <div class="card section">
@@ -139,9 +146,9 @@
             </p>
             <div class="row mt10">
               <button class="btn secondary" id="btn-export">
-                ⬇ Unduh Data (JSON)</button
+                Unduh Data (JSON)</button
               ><button class="btn ghost" id="btn-import">
-                ⬆ Pulihkan dari Berkas</button
+                Pulihkan dari Berkas</button
               ><input
                 type="file"
                 id="file-import"
@@ -157,7 +164,7 @@
           </div>
         </div>
         <footer class="site">
-          MathLab SMA — belajar matematika jadi seru ✨ •
+          MathLab SMA — belajar matematika jadi seru •
           <a href="profil.html">Papan Skor</a> •
           <a href="developer.html">Profil Dev</a>
         </footer>
@@ -240,7 +247,32 @@
           });
           html += "</div>";
           document.getElementById("summary").innerHTML = html;
+          /* Riwayat: 5 terakhir per tingkat */
+          var hh = '<div class="two">';
+          S.QUIZ_KBS.forEach(function (kb) {
+            hh += '<div class="card"><h3>' + S.KB_NAMES[kb] + "</h3>";
+            var any = false;
+            S.LEVELS.forEach(function (lv) {
+              var r = S.levelRecord(kb, lv);
+              if (r.history && r.history.length) {
+                any = true;
+                hh += '<p class="tight"><b>' + lv.charAt(0).toUpperCase() + lv.slice(1) + ":</b> " +
+                  r.history.slice(0, 5).map(function (h) { return h.pct + "%"; }).join(", ") + "</p>";
+              }
+            });
+            if (!any) hh += '<p class="muted tight">Belum ada percobaan.</p>';
+            hh += "</div>";
+          });
+          hh += "</div>";
+          document.getElementById("history").innerHTML = hh;
         }
+
+        /* --- Cetak --- */
+        document
+          .getElementById("btn-print")
+          .addEventListener("click", function () {
+            window.print();
+          });
 
         /* --- Reset skor --- */
         document

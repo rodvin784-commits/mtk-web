@@ -1,5 +1,49 @@
-/* Bank soal bertingkat — KB3 & KB4 (KB1 & KB2 hanya materi + contoh, tanpa kuis) */
+/* Bank soal bertingkat — KB1 sampai KB4, masing-masing mudah/sedang/sulit */
 window.MTKQuestions = {
+kb1:{
+mudah:[
+ {q:"Diketahui f(x) = 2x + 3. Nilai f(2) = …",choices:["7","5","10","4"],answer:0,discuss:"f(2) = 2×2+3 = 7."},
+ {q:"Gradien dari f(x) = 2x + 3 adalah …",choices:["2","3","5","0"],answer:0,discuss:"Gradien = koefisien x = 2."},
+ {q:"Titik potong f(x) = 2x + 3 dengan sumbu-Y adalah …",choices:["(0,3)","(3,0)","(0,2)","(2,0)"],answer:0,discuss:"Saat x = 0 → f(0) = 3 → titik (0,3)."},
+ {q:"Garis melalui (1,2) dan (3,8). Gradiensnya …",choices:["3","2","6","4"],answer:0,discuss:"m = (8−2)/(3−1) = 6/2 = 3."},
+ {q:"Dua garis sejajar memiliki gradien yang …",choices:["sama","berlawanan","nol","tak tentu"],answer:0,discuss:"Syarat sejajar: m1 = m2."}
+],
+sedang:[
+ {q:"Garis melalui (1,2) bergradien 3. Persamaannya …",choices:["y = 3x−1","y = 3x+2","y = x+2","y = 3x+5"],answer:0,discuss:"y−2 = 3(x−1) → y = 3x−1."},
+ {q:"Diketahui f(x) = 5−2x. Nilai f(4) = …",choices:["−3","3","13","−13"],answer:0,discuss:"f(4) = 5−8 = −3."},
+ {q:"Garis melalui (0,3) dan (2,7). Persamaannya …",choices:["y = 2x+3","y = x+3","y = 2x+7","y = 4x+3"],answer:0,discuss:"m = (7−3)/2 = 2; potong Y di 3 → y = 2x+3."},
+ {q:"Gradien garis 3x + y = 6 adalah …",choices:["−3","3","6","−6"],answer:0,discuss:"y = −3x+6 → m = −3."},
+ {q:"Garis sejajar y = 2x+5 melalui (0,1). Persamaannya …",choices:["y = 2x+1","y = 2x+5","y = x+1","y = −2x+1"],answer:0,discuss:"Gradien tetap 2, potong Y di 1 → y = 2x+1."}
+],
+sulit:[
+ {q:"Garis melalui (2,5) dan (4,11). Persamaannya …",choices:["y = 3x−1","y = 2x+1","y = 3x+5","y = x+3"],answer:0,discuss:"m = (11−5)/(4−2) = 3; y−5 = 3(x−2) → y = 3x−1."},
+ {q:"Invers dari f(x) = 2x + 6 adalah …",choices:["(x−6)/2","(x+6)/2","2x−6","x/2+6"],answer:0,discuss:"y = 2x+6 → x = (y−6)/2."},
+ {q:"Garis tegak lurus y = 2x+3 melalui (0,0). Persamaannya …",choices:["y = −x/2","y = 2x","y = x/2","y = −2x"],answer:0,discuss:"Tegak lurus: m1×m2 = −1 → m2 = −1/2."},
+ {q:"Jika f(x) = 3x−1 dan f(a) = 8, nilai a = …",type:"isian",answer:"3",discuss:"3a−1 = 8 → 3a = 9 → a = 3."},
+ {q:"Gradien garis 2x + 4y = 8 adalah … (tulis desimal)",type:"isian",answer:"-0.5",discuss:"y = −0,5x+2 → m = −0,5."}
+]},
+kb2:{
+mudah:[
+ {q:"Bentuk umum fungsi kuadrat adalah …",choices:["f(x) = ax²+bx+c, a≠0","f(x) = ax+b","f(x) = a/x","f(x) = ax³"],answer:0,discuss:"Pangkat tertinggi 2 dengan a≠0."},
+ {q:"Jika a > 0, parabola terbuka ke …",choices:["atas","bawah","kiri","kanan"],answer:0,discuss:"a > 0 punya nilai minimum, terbuka ke atas."},
+ {q:"Diketahui f(x) = x²−4. Nilai f(2) = …",choices:["0","4","−4","12"],answer:0,discuss:"f(2) = 4−4 = 0."},
+ {q:"Diskriminan f(x) = x²−4 adalah …",choices:["16","4","−16","0"],answer:0,discuss:"D = 0−4(1)(−4) = 16."},
+ {q:"Titik puncak f(x) = x²−4 adalah …",choices:["(0,−4)","(2,0)","(0,4)","(−4,0)"],answer:0,discuss:"xp = −0/2 = 0; yp = −4."}
+],
+sedang:[
+ {q:"Sumbu simetri f(x) = x²−4x+3 adalah …",choices:["x = 2","x = 4","x = −2","x = 1"],answer:0,discuss:"x = −(−4)/2 = 2."},
+ {q:"Pembuat nol f(x) = x²−4x+3 adalah …",choices:["x = 1 atau x = 3","x = 2 saja","x = −1 atau x = −3","x = 0"],answer:0,discuss:"(x−1)(x−3) = 0."},
+ {q:"Titik puncak f(x) = x²−4x+3 adalah …",choices:["(2,−1)","(2,1)","(4,3)","(1,0)"],answer:0,discuss:"xp = 2 → yp = 4−8+3 = −1."},
+ {q:"Jika D = 0, grafik parabola …",choices:["menyinggung sumbu-X","memotong di dua titik","tidak memotong sumbu-X","sejajar sumbu-X"],answer:0,discuss:"D = 0 → satu titik singgung."},
+ {q:"Jika a < 0, fungsi kuadrat punya nilai …",choices:["maksimum","minimum","nol","tak tentu"],answer:0,discuss:"Terbuka ke bawah → titik puncak maksimum."}
+],
+sulit:[
+ {q:"Nilai maksimum f(x) = −x²+5 terletak di …",choices:["(0,5)","(5,0)","(0,−5)","(2,1)"],answer:0,discuss:"xp = 0 → yp = 5, a < 0 jadi maksimum."},
+ {q:"Diskriminan x²+2x+1 adalah …",choices:["0","4","−4","8"],answer:0,discuss:"D = 4−4 = 0."},
+ {q:"Akar persamaan x²+2x+1 = 0 adalah …",choices: ["x = −1 (kembar)","x = 1","x = 0","x = 2"],answer:0,discuss:"(x+1)² = 0 → x = −1 kembar."},
+ {q:"Sumbu simetri f(x) = x²+6x+5 adalah x = …",type:"isian",answer:"-3",discuss:"x = −6/2 = −3."},
+ {q:"f(x) = x²−9. Pembuat nol positifnya x = …",type:"isian",answer:"3",discuss:"x² = 9 → x = ±3, yang positif 3."}
+]},
 kb3:{
 mudah:[
  {q:"Diketahui f(x)=x+3, g(x)=4x+5. (f∘g)(x) = …",choices:["4x+8","4x+17","3x+8","4x+5"],answer:0,discuss:"f(g)= (4x+5)+3 = 4x+8."},

@@ -65,10 +65,15 @@
     input.addEventListener('input',function(e){
       var grid=document.getElementById('kbGrid');
       if(!grid) return;
-      var k=e.target.value.toLowerCase();
+      var k=e.target.value.toLowerCase().trim();
+      var shown=0;
       grid.querySelectorAll('.kb-card').forEach(function(c){
-        c.style.display=(c.getAttribute('data-name')||'').includes(k)?'':'none';
+        var hit=((c.getAttribute('data-name')||'')+' '+(c.textContent||'').toLowerCase()).includes(k);
+        c.style.display=hit?'':'none';
+        if(hit) shown++;
       });
+      var cc=document.getElementById('kbCount');
+      if(cc) cc.textContent=k?shown+' hasil untuk "'+e.target.value.trim()+'"':'4 modul • ketik di pencarian atas untuk filter';
     });
   }
 
@@ -92,13 +97,37 @@
     if(kb) store.markMateri(kb);
   }
 
+  /* 4b) Dot status di sidebar (tanpa ikon): hijau=selesai, kuning=progres, abu=belum) */
+  function renderSideDots(){
+    if(!store) return;
+    var s;
+    try{ s=store.summary(); }catch(e){ return; }
+    if(!s||!s.perKB) return;
+    document.querySelectorAll('.side-link[data-kb]').forEach(function(a){
+      if(a.querySelector('.side-dot')) return;
+      var kb=a.getAttribute('data-kb');
+      var info=s.perKB[kb];
+      if(!info) return;
+      var dot=document.createElement('span');
+      dot.className='side-dot';
+      var isQuiz=store.QUIZ_KBS&&store.QUIZ_KBS.indexOf(kb)>=0;
+      var done=isQuiz?(info.done>=store.LEVELS.length):!!info.visited;
+      var prog=isQuiz?((info.done>0||info.avg>0)&&!done):false;
+      if(done) dot.classList.add('done');
+      else if(prog) dot.classList.add('prog');
+      dot.setAttribute('aria-hidden','true');
+      dot.title=done?'Selesai':(prog?'Sedang berjalan':'Belum dibuka');
+      a.appendChild(dot);
+    });
+  }
+
   /* 5) Tema terang/gelap — tersimpan di localStorage */
   var THEME_KEY='mathlab_theme';
   function applyTheme(t){
     document.documentElement.setAttribute('data-theme',t);
     var b=document.getElementById('themeBtn');
     if(b){
-      b.textContent=(t==='dark')?'☀️':'🌙';
+      b.textContent=(t==='dark')?'Terang':'Gelap';
       b.setAttribute('aria-pressed',(t==='dark')?'true':'false');
     }
     window.dispatchEvent(new Event('themechange'));
@@ -116,7 +145,7 @@
   document.querySelectorAll('.topbar').forEach(function(bar){
     if(!bar||bar.querySelector('#themeBtn')) return;
     var b=document.createElement('button');
-    b.type='button'; b.id='themeBtn'; b.className='btn ghost icon-btn';
+    b.type='button'; b.id='themeBtn'; b.className='btn ghost';
     b.setAttribute('aria-label','Ganti tema terang / gelap');
     b.addEventListener('click',function(){
       var t=(document.documentElement.getAttribute('data-theme')==='dark')?'light':'dark';
@@ -130,7 +159,7 @@
   /* 6) Toast notification */
   function toast(msg,type){
     var wrap=document.getElementById('toastWrap');
-    if(!wrap){ wrap=document.createElement('div'); wrap.id='toastWrap'; document.body.appendChild(wrap); }
+    if(!wrap){ wrap=document.createElement('div'); wrap.id='toastWrap'; wrap.setAttribute('role','status'); wrap.setAttribute('aria-live','polite'); document.body.appendChild(wrap); }
     var t=document.createElement('div');
     t.className='toast'+(type?' '+type:'');
     t.textContent=msg;
@@ -172,5 +201,6 @@
   if(content) content.classList.add('anim-in');
 
   refreshProfile();
+  renderSideDots();
   window.MTKShell={refreshProfile:refreshProfile,toast:toast,countUp:countUp,applyTheme:applyTheme};
 })();

@@ -85,17 +85,39 @@
       msg.innerHTML=''; vals.innerHTML='';
       var xmin = xminEl?parseFloat(xminEl.value):-10;
       var xmax = xmaxEl?parseFloat(xmaxEl.value):10;
-      if(!(xmin<xmax)){ msg.innerHTML='<div class="alert error">Domain tidak valid: xmin &lt; xmax.</div>'; return; }
+      if(!(xmin<xmax)){ msg.innerHTML='<div class="alert error">Rentang tidak valid: x-min harus lebih kecil dari x-max.</div>'; return; }
       try{
         var p = parseMath(raw);
         drawPlot(canvas,p.fn,{xmin:xmin,xmax:xmax,ymin:-10,ymax:10});
-        var f0,f2;
-        try{ f0=p.fn(0); f2=p.fn(2);}catch(e){ f0=NaN; f2=NaN; }
-        var fmt=function(v){ return (typeof v==='number'&&isFinite(v))? (Math.round(v*1000)/1000) : 'tak terdefinisi'; };
-        vals.innerHTML='<div class="alert ok">f(x) = '+escapeHtml(raw.trim())+' ⇒ f(0) = <b>'+fmt(f0)+'</b>, f(2) = <b>'+fmt(f2)+'</b></div>';
+        var fmt=function(v){ return (typeof v==='number'&&isFinite(v))? (Math.round(v*1000)/1000) : '—'; };
+        var xs=[-2,-1,0,1,2], cells='', txt=[];
+        xs.forEach(function(x){
+          var y; try{ y=p.fn(x); }catch(e){ y=NaN; }
+          cells+='<td>'+fmt(y)+'</td>'; txt.push('f('+x+')='+fmt(y));
+        });
+        vals.innerHTML='<div class="alert ok">f(x) = '+escapeHtml(raw.trim())+' ⇒ f(0) = <b>'+fmt(p.fn(0))+'</b>, f(2) = <b>'+fmt(p.fn(2))+'</b></div>'
+          +'<div class="val-wrap"><table class="val-table" aria-label="Tabel nilai fungsi"><tr><th>x</th><th>-2</th><th>-1</th><th>0</th><th>1</th><th>2</th></tr><tr><th>f(x)</th>'+cells+'</tr></table>'
+          +'<button type="button" class="btn secondary btn-sm" data-graph-copy>Salin hasil</button></div>';
+        var cp=vals.querySelector('[data-graph-copy]');
+        if(cp) cp.addEventListener('click',function(){
+          var s='f(x) = '+raw.trim()+' | '+txt.join(', ');
+          function done(ok){ if(window.MTKShell&&window.MTKShell.toast) window.MTKShell.toast(ok?'Hasil disalin.':'Gagal menyalin.',ok?'ok':'error'); }
+          if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(s).then(function(){done(true);},function(){done(false);});
+          else done(false);
+        });
       }catch(err){
-        msg.innerHTML='<div class="alert error">Sintaks invalid pada token: <b>'+escapeHtml(err.token||'?')+'</b>. Hanya boleh x, angka, + − * / ^n bulat, tanda kurung. Contoh: x+3, x^2+5, (x+1)*(x-2)/2</div>';
+        msg.innerHTML='<div class="alert error">Tidak bisa digambar pada: <b>'+escapeHtml(err.token||'?')+'</b>. Gunakan x, angka, + - * / ^ dan kurung. Contoh: x+3, x^2+5</div>';
       }
+    }
+    /* Kontrol zoom: perkecil/perbesar rentang x */
+    function zoom(f){
+      if(!xminEl||!xmaxEl) return;
+      var xmin=parseFloat(xminEl.value)||-10, xmax=parseFloat(xmaxEl.value)||10;
+      var mid=(xmin+xmax)/2, half=(xmax-xmin)/2*f;
+      half=Math.min(50,Math.max(2,half));
+      xminEl.value=Math.round((mid-half)*100)/100;
+      xmaxEl.value=Math.round((mid+half)*100)/100;
+      render();
     }
     root.querySelector('[data-graph-submit]').addEventListener('click',function(){render();});
     input.addEventListener('keydown',function(e){ if(e.key==='Enter') render(); });
@@ -104,6 +126,17 @@
     });
     var rst = root.querySelector('[data-graph-reset]');
     if(rst) rst.addEventListener('click',function(){ input.value='x+3'; render('x+3'); });
+    /* tombol zoom disuntik agar 4 halaman KB tidak perlu diubah manual */
+    var bar=root.querySelector('.row.mt10');
+    if(bar&&!bar.querySelector('[data-graph-zoom]')){
+      var zo=document.createElement('button'); zo.type='button'; zo.className='btn ghost btn-sm';
+      zo.setAttribute('data-graph-zoom','out'); zo.textContent='Perkecil';
+      zo.addEventListener('click',function(){zoom(0.6);});
+      var zi=document.createElement('button'); zi.type='button'; zi.className='btn ghost btn-sm';
+      zi.setAttribute('data-graph-zoom','in'); zi.textContent='Perbesar';
+      zi.addEventListener('click',function(){zoom(1.6);});
+      bar.appendChild(zo); bar.appendChild(zi);
+    }
     render(input.value||'x+3');
     /* gambar ulang saat tema berubah agar warna canvas tetap serasi */
     window.addEventListener('themechange',function(){ render(); });

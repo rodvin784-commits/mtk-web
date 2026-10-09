@@ -13,41 +13,47 @@
 <aside class="sidebar">
 <div class="logo"><div class="logo-mark">∑</div><div><b>MathLab SMA</b><small>PLATFORM BELAJAR MATEMATIKA</small></div></div>
 <div class="side-label">MENU</div>
-<a class="side-link active" href="index.html"><span class="ico">🏠</span> Beranda</a>
+<a class="side-link active" href="index.html">Beranda</a>
 <div class="side-label">MATERI KB 1–4</div>
-<a class="side-link" href="kb1.html"><span class="ico">📘</span> Fungsi Linear</a>
-<a class="side-link" href="kb2.html"><span class="ico">📐</span> Fungsi Kuadrat</a>
-<a class="side-link" href="kb3.html"><span class="ico">🔀</span> Komposisi &amp; Invers</a>
-<a class="side-link" href="kb4.html"><span class="ico">🎯</span> Program Linear</a>
-<div class="side-label">FITUR CEPAT</div>
-<a class="side-link" href="kb3.html#comp-kb3"><span class="ico">🔢</span> Kalkulator Komposisi</a>
-<a class="side-link" href="kb1.html#graph-kb1"><span class="ico">📈</span> Grafik Fungsi</a>
-<a class="side-link" href="kb3.html#quiz-kb3"><span class="ico">📝</span> Kuis Bertingkat <span class="pill">Gas!</span></a>
+<a class="side-link" href="kb1.html" data-kb="kb1">Fungsi Linear</a>
+<a class="side-link" href="kb2.html" data-kb="kb2">Fungsi Kuadrat</a>
+<a class="side-link" href="kb3.html" data-kb="kb3">Komposisi &amp; Invers</a>
+<a class="side-link" href="kb4.html" data-kb="kb4">Program Linear</a>
+<div class="side-label">TOOLS</div>
+<a class="side-link" href="kb3.html#comp-kb3">Kalkulator Komposisi</a>
+<a class="side-link" href="kb1.html#graph-kb1">Grafik Fungsi</a>
+<a class="side-link" href="kb3.html#quiz-kb3">Kuis Bertingkat <span class="pill">Gas!</span></a>
 <div class="side-label">LAINNYA</div>
-<a class="side-link" href="profil.html"><span class="ico">🏆</span> Papan Skor</a>
-<a class="side-link" href="developer.html"><span class="ico">🧑‍💻</span> Profil Dev</a>
+<a class="side-link" href="profil.html">Papan Skor</a>
+<a class="side-link" href="developer.html">Profil Dev</a>
 <div class="target-card"><h4>Misi Minggu Ini</h4><p>Selesaikan kuis tingkat mudah &amp; sedang untuk membuka level sulit!</p><a class="btn" href="kb3.html#quiz-kb3">Mulai Kuis</a></div>
 </aside>
 <div class="main">
 <div class="topbar">
-<div class="search">🔍 <input data-search type="text" placeholder="Mau belajar apa hari ini? Cari di sini…" aria-label="Cari materi"></div>
+<div class="search"><span class="search-label">Cari</span><input data-search type="text" placeholder="Mau belajar apa hari ini? Cari di sini…" aria-label="Cari materi"></div>
 <div class="top-user"><div class="avatar">SW</div><div><b>Siswa Kelas X</b><small>Dashboard</small></div></div>
 </div>
 <div class="content">
 <div class="welcome">
 <div class="math-bg" aria-hidden="true"><span>x²</span><span>∑</span><span>f(x)</span></div>
-<h1>Selamat datang, Pejuang Matematika 👋</h1>
-<p>Mari lanjutkan pembelajaranmu. Fungsi Linear tinggal 2 langkah lagi selesai!</p>
+<h1>Selamat datang, Pejuang Matematika</h1>
+<p id="welcomeSub">Mari lanjutkan pembelajaranmu dari awal sampai tuntas.</p>
 <div class="welcome-actions">
-<a class="btn accent" href="kb1.html">▶ Lanjut Belajar</a>
+<a class="btn accent" id="welcomeBtn" href="kb1.html">Lanjut Belajar</a>
 <a class="btn outline" href="kb3.html#quiz-kb3">Ikuti Kuis</a>
 </div>
 </div>
+<div class="card section" id="onboard" hidden>
+<h3>Cara pakai (3 langkah)</h3>
+<p class="tight">1. Buka modul KB1 sampai KB4 berurutan.</p>
+<p class="tight">2. Coba grafik dan kalkulator di tiap modul.</p>
+<p class="tight">3. Kerjakan kuis mudah → sedang → sulit (lulus 60% untuk lanjut).</p>
+</div>
 <div class="stats">
-<div class="stat"><div class="stat-ico tint-blue">📘</div><div><small>Materi Dipelajari</small><b class="big" id="stMateri">0</b><div class="trend" id="stMateriSub">0 dari 4 modul</div></div></div>
-<div class="stat"><div class="stat-ico tint-violet">📝</div><div><small>Kuis Diselesaikan</small><b class="big" id="stQuiz">0</b><div class="trend" id="stQuizSub">0 level selesai</div></div></div>
-<div class="stat"><div class="stat-ico tint-mint">🏆</div><div><small>Total Skor</small><b class="big" id="stScore">0</b><div class="trend" id="stScoreSub">0 poin</div></div></div>
-<div class="stat"><div class="stat-ico tint-peach">🎯</div><div><small>Kemajuan</small><b class="big" id="stProg">0%</b><div class="bar"><i id="stProgBar" style="width:0%"></i></div></div></div>
+<div class="stat"><div><small>Materi Dipelajari</small><b class="big" id="stMateri">0</b><div class="trend" id="stMateriSub">0 dari 4 modul</div></div></div>
+<div class="stat"><div><small>Kuis Diselesaikan</small><b class="big" id="stQuiz">0</b><div class="trend" id="stQuizSub">0 level selesai</div></div></div>
+<div class="stat"><div><small>Total Skor</small><b class="big" id="stScore">0</b><div class="trend" id="stScoreSub">0 poin</div></div></div>
+<div class="stat"><div><small>Kemajuan</small><b class="big" id="stProg">0%</b><div class="bar"><i id="stProgBar" style="width:0%"></i></div></div></div>
 </div>
 <div class="cols">
 <div class="card">
@@ -59,15 +65,19 @@
 </div>
 <div class="card">
 <div class="card-head"><h3>Akses Cepat</h3></div>
-<a class="qa" href="kb3.html#comp-kb3"><div class="qa-ico tint-violet">🔢</div><div><b>Kalkulator Komposisi</b><small>Hitung (f∘g)…(h∘g∘f) langkah demi langkah</small></div></a>
-<a class="qa" href="kb1.html#graph-kb1"><div class="qa-ico tint-blue">📈</div><div><b>Grafik Fungsi</b><small>Gambar grafik offline tanpa internet</small></div></a>
-<a class="qa" href="kb1.html#contoh-kb1"><div class="qa-ico tint-peach">✏️</div><div><b>Contoh Soal</b><small>Dibahas tuntas di setiap KB</small></div></a>
+<a class="qa" href="kb3.html#comp-kb3"><div><b>Kalkulator Komposisi</b><small>Hitung (f∘g)…(h∘g∘f) langkah demi langkah</small></div></a>
+<a class="qa" href="kb1.html#graph-kb1"><div><b>Grafik Fungsi</b><small>Gambar grafik offline tanpa internet</small></div></a>
+<a class="qa" href="kb1.html#contoh-kb1"><div><b>Contoh Soal</b><small>Dibahas tuntas di setiap KB</small></div></a>
 </div>
 </div>
 <div class="card section">
-<div class="card-head"><h3>Perkembangan Belajar</h3><small class="muted">Skor tersimpan otomatis di perangkatmu</small></div>
+<div class="card-head"><h3>Jelajahi Modul</h3><small class="muted" id="kbCount">4 modul • ketik di pencarian atas untuk filter</small></div>
 <div class="kb-grid" id="kbGrid">
-<div class="card kb-card" data-name="profil perkembangan skor leaderboard papan skor"><span class="kb-tag t-rose">PROFIL</span><h3>Perkembangan</h3><p>Skor tersimpan lokal &amp; reset.</p><a class="btn secondary" href="profil.html">Lihat Profil →</a></div>
+<div class="card kb-card" data-name="kb1 fungsi linear gradien garis lurus grafik contoh"><span class="kb-tag">KB 1</span><h3>Fungsi Linear</h3><p>f(x) = ax + b • grafik + kuis.</p><div class="bar"><i id="kbBar-kb1" style="width:0%"></i></div><p class="muted tight" id="kbSub-kb1">Belum dibuka</p><a class="btn secondary" href="kb1.html">Buka KB1 →</a></div>
+<div class="card kb-card" data-name="kb2 fungsi kuadrat parabola diskriminan puncak geogebra grafik"><span class="kb-tag t-violet">KB 2</span><h3>Fungsi Kuadrat</h3><p>Parabola • diskriminan • grafik + kuis.</p><div class="bar"><i id="kbBar-kb2" style="width:0%"></i></div><p class="muted tight" id="kbSub-kb2">Belum dibuka</p><a class="btn secondary" href="kb2.html">Buka KB2 →</a></div>
+<div class="card kb-card" data-name="kb3 komposisi invers fog gof kalkulator kuis bertingkat"><span class="kb-tag t-mint">KB 3</span><h3>Komposisi &amp; Invers</h3><p>Kalkulator 10 bentuk + kuis bertingkat.</p><div class="bar"><i id="kbBar-kb3" style="width:0%"></i></div><p class="muted tight" id="kbSub-kb3">Belum dikerjakan</p><a class="btn secondary" href="kb3.html">Buka KB3 →</a></div>
+<div class="card kb-card" data-name="kb4 program linear optimum dhp kendala kuis"><span class="kb-tag t-peach">KB 4</span><h3>Program Linear</h3><p>Model • DHP • nilai optimum + kuis.</p><div class="bar"><i id="kbBar-kb4" style="width:0%"></i></div><p class="muted tight" id="kbSub-kb4">Belum dikerjakan</p><a class="btn secondary" href="kb4.html">Buka KB4 →</a></div>
+<div class="card kb-card" data-name="profil perkembangan skor papan skor reset backup"><span class="kb-tag t-rose">PROFIL</span><h3>Perkembangan</h3><p>Skor tersimpan lokal &amp; reset.</p><a class="btn secondary" href="profil.html">Lihat Profil →</a></div>
 </div>
 </div>
 <div class="card section">
@@ -75,7 +85,7 @@
 <p>f(x) = x+3, g(x) = 4x+5, h(x) = 3x−9 ⇒ <code>(f∘g)(x) = 4x+8</code>, <code>(g∘f)(x) = 4x+17</code>. Coba di <a href="kb3.html#comp-kb3"><b>kalkulator KB3</b></a>.</p>
 </div>
 </div>
-<footer class="site">MathLab SMA — belajar matematika jadi seru ✨ • <a href="profil.html">Papan Skor</a> • <a href="developer.html">Profil Dev</a></footer>
+<footer class="site">MathLab SMA — belajar matematika jadi seru • <a href="profil.html">Papan Skor</a> • <a href="developer.html">Profil Dev</a></footer>
 </div>
 </div>
 <script src="js/store.js"></script>
@@ -123,6 +133,38 @@
   });
   rows+='<p class="prog-note">Skor = nilai terbaik per tingkat kuis; tersimpan otomatis di perangkatmu.</p>';
   document.getElementById('progList').innerHTML=rows;
+  /* Kartu modul: isi bar + sub */
+  S.ALL_KBS.forEach(function(kb){
+    var info=s.perKB[kb];
+    var bar=document.getElementById('kbBar-'+kb), sub=document.getElementById('kbSub-'+kb);
+    if(!bar||!sub) return;
+    if(S.QUIZ_KBS.indexOf(kb)>=0){
+      bar.style.width=info.avg+'%';
+      sub.textContent=info.done?info.done+'/'+S.LEVELS.length+' level • rata-rata '+info.avg+'%':'Belum dikerjakan';
+    }else{
+      bar.style.width=info.visited?'100%':'0%';
+      sub.textContent=info.visited?('Sudah dibuka '+info.opens+'x'):'Belum dibuka';
+    }
+  });
+  /* Welcome dinamis: lanjutkan modul yang belum selesai */
+  var order=['kb1','kb2','kb3','kb4'], next=null;
+  for(var i=0;i<order.length;i++){
+    var kb=order[i], info=s.perKB[kb];
+    var done=(S.QUIZ_KBS.indexOf(kb)>=0)?(info.done>=S.LEVELS.length):!!info.visited;
+    if(!done){ next=kb; break; }
+  }
+  var wSub=document.getElementById('welcomeSub'), wBtn=document.getElementById('welcomeBtn');
+  if(next&&wSub&&wBtn){
+    var names={kb1:'Fungsi Linear',kb2:'Fungsi Kuadrat',kb3:'Komposisi dan Invers',kb4:'Program Linear'};
+    wSub.textContent='Lanjutkan ke '+names[next]+' — '+s.materiOpened+' dari '+s.materiTotal+' modul sudah dibuka.';
+    wBtn.setAttribute('href',next+'.html');
+    wBtn.textContent='Lanjut: '+names[next];
+  }else if(wSub){
+    wSub.textContent='Semua modul selesai. Pertahankan dengan mengulang kuis atau melihat profil.';
+  }
+  /* Onboarding: hanya untuk pengguna baru */
+  var ob=document.getElementById('onboard');
+  if(ob&&(s.materiOpened===0&&s.quizLevelsDone===0)) ob.hidden=false;
 })();
 </script>
 </body>
