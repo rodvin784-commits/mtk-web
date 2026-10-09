@@ -97,23 +97,29 @@
           <div class="card section" id="graph-kb1">
             <h2>2. Grafik Fungsi (offline)</h2>
             <p class="note">
-              Ketik persamaan lalu tekan <b>Gambar</b>. Coba: <code>x+3</code>,
-              <code>2*x-6</code>, <code>5-2*x</code>.
+              Ketik rumus lalu tekan <b>Gambar</b>. Tulis kali dengan
+              <code>*</code> dan pangkat dengan <code>^</code>. Contoh:
+              <code>x+3</code>, <code>2*x-6</code>, <code>5-2*x</code>.
             </p>
             <div class="row">
               <div class="grow2">
-                <label>Fungsi f(x) =</label
-                ><input type="text" data-graph-input value="x+3" />
-              </div>
-              <div>
-                <label>x-min</label
-                ><input type="number" data-graph-xmin value="-10" />
-              </div>
-              <div>
-                <label>x-max</label
-                ><input type="number" data-graph-xmax value="10" />
+                <label>Rumus fungsi</label
+                ><input type="text" data-graph-input value="x+3" placeholder="mis. x+3" />
               </div>
             </div>
+            <details class="adv">
+              <summary>Atur rentang sumbu-X (tidak wajib)</summary>
+              <div class="row">
+                <div>
+                  <label>Dari (kiri)</label
+                  ><input type="number" data-graph-xmin value="-10" />
+                </div>
+                <div>
+                  <label>Sampai (kanan)</label
+                  ><input type="number" data-graph-xmax value="10" />
+                </div>
+              </div>
+            </details>
             <div class="row mt10">
               <button class="btn" data-graph-submit>Gambar</button
               ><button class="btn secondary" data-graph-example="x+3">

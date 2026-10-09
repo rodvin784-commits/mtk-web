@@ -110,22 +110,28 @@
           <div class="card section" id="graph-kb4">
             <h2>2. Grafik (bantu garis kendala)</h2>
             <p class="note">
-              Gambar garis kendala, misalnya x + y = 4 → ketik <code>4-x</code>.
+              Ketik rumus garis lalu tekan <b>Gambar</b>. Misalnya x + y = 4 →
+              ketik <code>4-x</code>. Tulis kali dengan <code>*</code>.
             </p>
             <div class="row">
               <div class="grow2">
-                <label>Fungsi f(x) =</label
-                ><input type="text" data-graph-input value="4-x" />
-              </div>
-              <div>
-                <label>x-min</label
-                ><input type="number" data-graph-xmin value="-10" />
-              </div>
-              <div>
-                <label>x-max</label
-                ><input type="number" data-graph-xmax value="10" />
+                <label>Rumus fungsi</label
+                ><input type="text" data-graph-input value="4-x" placeholder="mis. 4-x" />
               </div>
             </div>
+            <details class="adv">
+              <summary>Atur rentang sumbu-X (tidak wajib)</summary>
+              <div class="row">
+                <div>
+                  <label>Dari (kiri)</label
+                  ><input type="number" data-graph-xmin value="-10" />
+                </div>
+                <div>
+                  <label>Sampai (kanan)</label
+                  ><input type="number" data-graph-xmax value="10" />
+                </div>
+              </div>
+            </details>
             <div class="row mt10">
               <button class="btn" data-graph-submit>Gambar</button
               ><button class="btn secondary" data-graph-example="4-x">

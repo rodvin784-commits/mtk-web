@@ -59,24 +59,6 @@
     syncSide();
   })();
 
-  /* 2) Search filter (hanya ada di dashboard) */
-  var input=document.querySelector('[data-search]');
-  if(input){
-    input.addEventListener('input',function(e){
-      var grid=document.getElementById('kbGrid');
-      if(!grid) return;
-      var k=e.target.value.toLowerCase().trim();
-      var shown=0;
-      grid.querySelectorAll('.kb-card').forEach(function(c){
-        var hit=((c.getAttribute('data-name')||'')+' '+(c.textContent||'').toLowerCase()).includes(k);
-        c.style.display=hit?'':'none';
-        if(hit) shown++;
-      });
-      var cc=document.getElementById('kbCount');
-      if(cc) cc.textContent=k?shown+' hasil untuk "'+e.target.value.trim()+'"':'4 modul • ketik di pencarian atas untuk filter';
-    });
-  }
-
   /* 3) Profil di topbar (semua halaman) */
   function refreshProfile(){
     if(!store) return;

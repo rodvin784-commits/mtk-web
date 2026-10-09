@@ -151,23 +151,29 @@
           <div class="card section" id="graph-kb3">
             <h2>3. Grafik</h2>
             <p class="note">
-              Gambarkan fungsi apa saja, misalnya hasil komposisi di atas. Coba:
+              Ketik rumus lalu tekan <b>Gambar</b> — misalnya hasil komposisi
+              di atas. Tulis kali dengan <code>*</code>. Coba:
               <code>x+3</code>, <code>4*x+5</code>, <code>3*x-9</code>.
             </p>
             <div class="row">
               <div class="grow2">
-                <label>Fungsi f(x) =</label
-                ><input type="text" data-graph-input value="4*x+5" />
-              </div>
-              <div>
-                <label>x-min</label
-                ><input type="number" data-graph-xmin value="-10" />
-              </div>
-              <div>
-                <label>x-max</label
-                ><input type="number" data-graph-xmax value="10" />
+                <label>Rumus fungsi</label
+                ><input type="text" data-graph-input value="4*x+5" placeholder="mis. 4*x+5" />
               </div>
             </div>
+            <details class="adv">
+              <summary>Atur rentang sumbu-X (tidak wajib)</summary>
+              <div class="row">
+                <div>
+                  <label>Dari (kiri)</label
+                  ><input type="number" data-graph-xmin value="-10" />
+                </div>
+                <div>
+                  <label>Sampai (kanan)</label
+                  ><input type="number" data-graph-xmax value="10" />
+                </div>
+              </div>
+            </details>
             <div class="row mt10">
               <button class="btn" data-graph-submit>Gambar</button
               ><button class="btn secondary" data-graph-example="x+3">
