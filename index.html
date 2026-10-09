@@ -24,7 +24,6 @@
 <a class="side-link" href="kb1.html#graph-kb1">Grafik Fungsi</a>
 <a class="side-link" href="kb3.html#quiz-kb3">Kuis Bertingkat <span class="pill">Gas!</span></a>
 <div class="side-label">LAINNYA</div>
-<a class="side-link" href="profil.html">Papan Skor</a>
 <a class="side-link" href="developer.html">Profil Dev</a>
 <div class="target-card"><h4>Misi Minggu Ini</h4><p>Selesaikan kuis tingkat mudah &amp; sedang untuk membuka level sulit!</p><a class="btn" href="kb3.html#quiz-kb3">Mulai Kuis</a></div>
 </aside>
@@ -52,7 +51,6 @@
 <div class="stats">
 <div class="stat"><div><small>Materi Dipelajari</small><b class="big" id="stMateri">0</b><div class="trend" id="stMateriSub">0 dari 4 modul</div></div></div>
 <div class="stat"><div><small>Kuis Diselesaikan</small><b class="big" id="stQuiz">0</b><div class="trend" id="stQuizSub">0 level selesai</div></div></div>
-<div class="stat"><div><small>Total Skor</small><b class="big" id="stScore">0</b><div class="trend" id="stScoreSub">0 poin</div></div></div>
 <div class="stat"><div><small>Kemajuan</small><b class="big" id="stProg">0%</b><div class="bar"><i id="stProgBar" style="width:0%"></i></div></div></div>
 </div>
 <div class="cols">
@@ -77,7 +75,6 @@
 <div class="card kb-card" data-name="kb2 fungsi kuadrat parabola diskriminan puncak geogebra grafik"><span class="kb-tag t-violet">KB 2</span><h3>Fungsi Kuadrat</h3><p>Parabola • diskriminan • grafik + kuis.</p><div class="bar"><i id="kbBar-kb2" style="width:0%"></i></div><p class="muted tight" id="kbSub-kb2">Belum dibuka</p><a class="btn secondary" href="kb2.html">Buka KB2 →</a></div>
 <div class="card kb-card" data-name="kb3 komposisi invers fog gof kalkulator kuis bertingkat"><span class="kb-tag t-mint">KB 3</span><h3>Komposisi &amp; Invers</h3><p>Kalkulator 10 bentuk + kuis bertingkat.</p><div class="bar"><i id="kbBar-kb3" style="width:0%"></i></div><p class="muted tight" id="kbSub-kb3">Belum dikerjakan</p><a class="btn secondary" href="kb3.html">Buka KB3 →</a></div>
 <div class="card kb-card" data-name="kb4 program linear optimum dhp kendala kuis"><span class="kb-tag t-peach">KB 4</span><h3>Program Linear</h3><p>Model • DHP • nilai optimum + kuis.</p><div class="bar"><i id="kbBar-kb4" style="width:0%"></i></div><p class="muted tight" id="kbSub-kb4">Belum dikerjakan</p><a class="btn secondary" href="kb4.html">Buka KB4 →</a></div>
-<div class="card kb-card" data-name="profil perkembangan skor papan skor reset backup"><span class="kb-tag t-rose">PROFIL</span><h3>Perkembangan</h3><p>Skor tersimpan lokal &amp; reset.</p><a class="btn secondary" href="profil.html">Lihat Profil →</a></div>
 </div>
 </div>
 <div class="card section">
@@ -85,7 +82,7 @@
 <p>f(x) = x+3, g(x) = 4x+5, h(x) = 3x−9 ⇒ <code>(f∘g)(x) = 4x+8</code>, <code>(g∘f)(x) = 4x+17</code>. Coba di <a href="kb3.html#comp-kb3"><b>kalkulator KB3</b></a>.</p>
 </div>
 </div>
-<footer class="site">MathLab SMA — belajar matematika jadi seru • <a href="profil.html">Papan Skor</a> • <a href="developer.html">Profil Dev</a></footer>
+<footer class="site">MathLab SMA — belajar matematika jadi seru • <a href="developer.html">Profil Dev</a></footer>
 </div>
 </div>
 <script src="js/store.js"></script>
@@ -103,8 +100,6 @@
   document.getElementById('stMateriSub').textContent=s.materiOpened+' dari '+s.materiTotal+' modul dibuka';
   cnt('stQuiz',s.quizLevelsDone);
   document.getElementById('stQuizSub').textContent=s.quizLevelsDone+' dari '+s.totalLevels+' level kuis';
-  cnt('stScore',s.totalBest);
-  document.getElementById('stScoreSub').textContent=s.totalBest+' poin (akumulasi terbaik)';
   cnt('stProg',s.progress,'%');
   document.getElementById('stProgBar').style.width=s.progress+'%';
   /* Donut progress */

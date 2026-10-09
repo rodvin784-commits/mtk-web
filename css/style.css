@@ -113,7 +113,7 @@ button,input,select{font:inherit}
 .btn-sm{padding:8px 14px;font-size:.88rem;width:auto}
 
 /* === Statistik dashboard === */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;min-width:0;box-shadow:var(--shadow)}
 .stat .bar{margin-top:8px}
 .tint-blue{background:var(--primary-soft)}
