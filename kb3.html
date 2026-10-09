@@ -1,59 +1,217 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="KB3 Komposisi & Invers: materi, kalkulator 10 bentuk komposisi, grafik, dan kuis bertingkat.">
-<title>KB3 — Komposisi &amp; Invers | MathLab SMA</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>∑</text></svg>">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body data-kb="kb3">
-<div class="app">
-<aside class="sidebar">
-<div class="logo"><div class="logo-mark">∑</div><div><b>MathLab SMA</b><small>PLATFORM BELAJAR MATEMATIKA</small></div></div>
-<div class="side-label">MENU</div>
-<a class="side-link" href="index.html"><span class="ico">🏠</span> Beranda</a>
-<div class="side-label">MATERI KB 1–4</div>
-<a class="side-link" href="kb1.html"><span class="ico">📘</span> Fungsi Linear</a>
-<a class="side-link" href="kb2.html"><span class="ico">📐</span> Fungsi Kuadrat</a>
-<a class="side-link active" href="kb3.html"><span class="ico">🔀</span> Komposisi &amp; Invers</a>
-<a class="side-link" href="kb4.html"><span class="ico">🎯</span> Program Linear</a>
-<div class="side-label">FITUR CEPAT</div>
-<a class="side-link" href="kb3.html#comp-kb3"><span class="ico">🔢</span> Kalkulator Komposisi</a>
-<a class="side-link" href="kb1.html#graph-kb1"><span class="ico">📈</span> Grafik Fungsi</a>
-<a class="side-link" href="kb3.html#quiz-kb3"><span class="ico">📝</span> Kuis Bertingkat <span class="pill">Gas!</span></a>
-<div class="side-label">LAINNYA</div>
-<a class="side-link" href="profil.html"><span class="ico">🏆</span> Papan Skor</a>
-<a class="side-link" href="developer.html"><span class="ico">🧑‍💻</span> Profil Dev</a>
-<div class="target-card"><h4>Misi Minggu Ini</h4><p>Selesaikan kuis tingkat mudah &amp; sedang untuk membuka level sulit!</p><a class="btn" href="kb3.html#quiz-kb3">Mulai Kuis</a></div>
-</aside>
-<div class="main">
-<div class="topbar">
-<a class="btn ghost" href="index.html" aria-label="Kembali ke beranda">←</a>
-<div class="top-user"><div class="avatar">SW</div><div><b>Siswa Kelas X</b><small>KB3 • Komposisi</small></div></div>
-</div>
-<div class="content">
-<div class="page-head"><span class="kb-tag t-mint">KB 3 • Komposisi &amp; Invers</span><h1 class="grad-text">Komposisi &amp; Invers Fungsi</h1><p class="crumb"><a href="index.html">Beranda</a> / KB3</p></div>
-<div class="card section"><h2>1. Materi</h2><p>(f∘g)(x) = f(g(x)) — dikerjakan <b>dari kanan ke kiri</b>. Sifatnya tidak komutatif: (f∘g) ≠ (g∘f).</p><p><b>Papan tulis:</b> f = x+3, g = 4x+5, h = 3x−9 ⇒ (f∘g) = 4x+8, (g∘f) = 4x+17.</p></div>
-<div class="card section" id="comp-kb3"><h2>2. Kalkulator Komposisi (10 bentuk)</h2>
-<p class="legend">Tiga fungsi linear: <code>f(x) = ax + b</code> • <code>g(x) = cx + d</code> • <code>h(x) = ex + f</code></p>
-<div class="grid-comp"><div><label>f: a</label><input type="number" data-comp-a value="1"></div><div><label>f: b</label><input type="number" data-comp-b value="3"></div><div><label>g: c</label><input type="number" data-comp-c value="4"></div><div><label>g: d</label><input type="number" data-comp-d value="5"></div><div><label>h: e</label><input type="number" data-comp-e value="3"></div><div><label>h: f</label><input type="number" data-comp-f value="-9"></div></div>
-<div class="row"><div><label>Bentuk</label><select data-comp-form><option value="">— pilih bentuk —</option><option value="fog">(f∘g)(x)</option><option value="gof">(g∘f)(x)</option><option value="foh">(f∘h)(x)</option><option value="hof">(h∘f)(x)</option><option value="goh">(g∘h)(x)</option><option value="hog">(h∘g)(x)</option><option value="fogoh">(f∘g∘h)(x)</option><option value="gofoh">(g∘f∘h)(x)</option><option value="hofog">(h∘f∘g)(x)</option><option value="hogof">(h∘g∘f)(x)</option></select></div><div><label>Nilai x (opsional)</label><input type="number" data-comp-x placeholder="mis. 2"></div></div>
-<div class="row mt10"><button class="btn" data-comp-go>Hitung</button><button class="btn secondary" data-comp-preset>Isi contoh papan tulis</button></div>
-<div data-comp-out class="mt10"></div></div>
-<div class="card section" id="graph-kb3"><h2>3. Grafik</h2>
-<p class="note">Gambarkan fungsi apa saja, misalnya hasil komposisi di atas. Coba: <code>x+3</code>, <code>4*x+5</code>, <code>3*x-9</code>.</p>
-<div class="row"><div class="grow2"><label>Fungsi f(x) =</label><input type="text" data-graph-input value="4*x+5"></div><div><label>x-min</label><input type="number" data-graph-xmin value="-10"></div><div><label>x-max</label><input type="number" data-graph-xmax value="10"></div></div>
-<div class="row mt10"><button class="btn" data-graph-submit>Gambar</button><button class="btn secondary" data-graph-example="x+3">x+3</button><button class="btn secondary" data-graph-example="4*x+5">4x+5</button><button class="btn secondary" data-graph-example="3*x-9">3x−9</button><button class="btn ghost" data-graph-reset>Reset</button></div>
-<div data-graph-msg></div><p><canvas class="plot" data-graph-canvas></canvas></p><div data-graph-vals></div></div>
-<div class="card section" id="quiz-kb3"><h2>4. Soal Bertingkat</h2><div class="tabs" data-quiz-tabs></div><div data-quiz-body></div><div data-quiz-foot></div></div>
-<div class="pager"><a href="kb2.html">← KB2</a><a href="kb4.html">Lanjut KB4 →</a></div>
-</div>
-<footer class="site">MathLab SMA — belajar matematika jadi seru ✨ • <a href="profil.html">Papan Skor</a> • <a href="developer.html">Profil Dev</a></footer>
-</div>
-</div>
-<script src="js/store.js"></script><script src="js/questions.js"></script><script src="js/quiz.js"></script><script src="js/graph.js"></script><script src="js/composition.js"></script><script src="js/shell.js"></script>
-<script>MTKGraph.bind('graph-kb3'); MTKQuiz.bind('quiz-kb3','kb3'); MTKComp.bind('comp-kb3');</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="KB3 Komposisi & Invers: materi, kalkulator 10 bentuk komposisi, grafik, dan kuis bertingkat."
+    />
+    <title>KB3 — Komposisi &amp; Invers | MathLab SMA</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>∑</text></svg>"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-kb="kb3">
+    <div class="app">
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-mark">∑</div>
+          <div>
+            <b>MathLab SMA</b><small>PLATFORM BELAJAR MATEMATIKA</small>
+          </div>
+        </div>
+        <div class="side-label">MENU</div>
+        <a class="side-link" href="index.html"
+          ><span class="ico">🏠</span> Beranda</a
+        >
+        <div class="side-label">MATERI KB 1–4</div>
+        <a class="side-link" href="kb1.html"
+          ><span class="ico">📘</span> Fungsi Linear</a
+        >
+        <a class="side-link" href="kb2.html"
+          ><span class="ico">📐</span> Fungsi Kuadrat</a
+        >
+        <a class="side-link active" href="kb3.html"
+          ><span class="ico">🔀</span> Komposisi &amp; Invers</a
+        >
+        <a class="side-link" href="kb4.html"
+          ><span class="ico">🎯</span> Program Linear</a
+        >
+        <div class="side-label">FITUR CEPAT</div>
+        <a class="side-link" href="kb3.html#comp-kb3"
+          ><span class="ico">🔢</span> Kalkulator Komposisi</a
+        >
+        <a class="side-link" href="kb1.html#graph-kb1"
+          ><span class="ico">📈</span> Grafik Fungsi</a
+        >
+        <a class="side-link" href="kb3.html#quiz-kb3"
+          ><span class="ico">📝</span> Kuis Bertingkat
+          <span class="pill">Gas!</span></a
+        >
+        <div class="side-label">LAINNYA</div>
+        <a class="side-link" href="profil.html"
+          ><span class="ico">🏆</span> Papan Skor</a
+        >
+        <a class="side-link" href="developer.html"
+          ><span class="ico">🧑‍💻</span> Profil Dev</a
+        >
+        <div class="target-card">
+          <h4>Misi Minggu Ini</h4>
+          <p>
+            Selesaikan kuis tingkat mudah &amp; sedang untuk membuka level
+            sulit!
+          </p>
+          <a class="btn" href="kb3.html#quiz-kb3">Mulai Kuis</a>
+        </div>
+      </aside>
+      <div class="main">
+        <div class="topbar">
+          <a class="btn ghost" href="index.html" aria-label="Kembali ke beranda"
+            >←</a
+          >
+          <div class="top-user">
+            <div class="avatar">SW</div>
+            <div><b>Siswa Kelas X</b><small>KB3 • Komposisi</small></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="page-head">
+            <span class="kb-tag t-mint">KB 3 • Komposisi &amp; Invers</span>
+            <h1 class="grad-text">Komposisi &amp; Invers Fungsi</h1>
+            <p class="crumb"><a href="index.html">Beranda</a> / KB3</p>
+          </div>
+          <div class="card section">
+            <h2>1. Materi</h2>
+            <p>
+              (f∘g)(x) = f(g(x)) — dikerjakan <b>dari kanan ke kiri</b>.
+              Sifatnya tidak komutatif: (f∘g) ≠ (g∘f).
+            </p>
+            <p>
+              <b>Papan tulis:</b> f = x+3, g = 4x+5, h = 3x−9 ⇒ (f∘g) = 4x+8,
+              (g∘f) = 4x+17.
+            </p>
+          </div>
+          <div class="card section" id="comp-kb3">
+            <h2>2. Kalkulator Komposisi (10 bentuk)</h2>
+            <p class="legend">
+              Tiga fungsi linear: <code>f(x) = ax + b</code> •
+              <code>g(x) = cx + d</code> • <code>h(x) = ex + f</code>
+            </p>
+            <div class="grid-comp">
+              <div>
+                <label>f: a</label><input type="number" data-comp-a value="1" />
+              </div>
+              <div>
+                <label>f: b</label><input type="number" data-comp-b value="3" />
+              </div>
+              <div>
+                <label>g: c</label><input type="number" data-comp-c value="4" />
+              </div>
+              <div>
+                <label>g: d</label><input type="number" data-comp-d value="5" />
+              </div>
+              <div>
+                <label>h: e</label><input type="number" data-comp-e value="3" />
+              </div>
+              <div>
+                <label>h: f</label
+                ><input type="number" data-comp-f value="-9" />
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label>Bentuk</label
+                ><select data-comp-form>
+                  <option value="">— pilih bentuk —</option>
+                  <option value="fog">(f∘g)(x)</option>
+                  <option value="gof">(g∘f)(x)</option>
+                  <option value="foh">(f∘h)(x)</option>
+                  <option value="hof">(h∘f)(x)</option>
+                  <option value="goh">(g∘h)(x)</option>
+                  <option value="hog">(h∘g)(x)</option>
+                  <option value="fogoh">(f∘g∘h)(x)</option>
+                  <option value="gofoh">(g∘f∘h)(x)</option>
+                  <option value="hofog">(h∘f∘g)(x)</option>
+                  <option value="hogof">(h∘g∘f)(x)</option>
+                </select>
+              </div>
+              <div>
+                <label>Nilai x (opsional)</label
+                ><input type="number" data-comp-x placeholder="mis. 2" />
+              </div>
+            </div>
+            <div class="row mt10">
+              <button class="btn" data-comp-go>Hitung</button
+              ><button class="btn secondary" data-comp-preset>
+                Isi contoh papan tulis
+              </button>
+            </div>
+            <div data-comp-out class="mt10"></div>
+          </div>
+          <div class="card section" id="graph-kb3">
+            <h2>3. Grafik</h2>
+            <p class="note">
+              Gambarkan fungsi apa saja, misalnya hasil komposisi di atas. Coba:
+              <code>x+3</code>, <code>4*x+5</code>, <code>3*x-9</code>.
+            </p>
+            <div class="row">
+              <div class="grow2">
+                <label>Fungsi f(x) =</label
+                ><input type="text" data-graph-input value="4*x+5" />
+              </div>
+              <div>
+                <label>x-min</label
+                ><input type="number" data-graph-xmin value="-10" />
+              </div>
+              <div>
+                <label>x-max</label
+                ><input type="number" data-graph-xmax value="10" />
+              </div>
+            </div>
+            <div class="row mt10">
+              <button class="btn" data-graph-submit>Gambar</button
+              ><button class="btn secondary" data-graph-example="x+3">
+                x+3</button
+              ><button class="btn secondary" data-graph-example="4*x+5">
+                4x+5</button
+              ><button class="btn secondary" data-graph-example="3*x-9">
+                3x−9</button
+              ><button class="btn ghost" data-graph-reset>Reset</button>
+            </div>
+            <div data-graph-msg></div>
+            <p><canvas class="plot" data-graph-canvas></canvas></p>
+            <div data-graph-vals></div>
+          </div>
+          <div class="card section" id="quiz-kb3">
+            <h2>4. Soal Bertingkat</h2>
+            <div class="tabs" data-quiz-tabs></div>
+            <div data-quiz-body></div>
+            <div data-quiz-foot></div>
+          </div>
+          <div class="pager">
+            <a href="kb2.html">← KB2</a><a href="kb4.html">Lanjut KB4 →</a>
+          </div>
+        </div>
+        <footer class="site">
+          MathLab SMA — belajar matematika jadi seru ✨ •
+          <a href="profil.html">Papan Skor</a> •
+          <a href="developer.html">Profil Dev</a>
+        </footer>
+      </div>
+    </div>
+    <script src="js/store.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/graph.js"></script>
+    <script src="js/composition.js"></script>
+    <script src="js/shell.js"></script>
+    <script>
+      MTKGraph.bind("graph-kb3");
+      MTKQuiz.bind("quiz-kb3", "kb3");
+      MTKComp.bind("comp-kb3");
+    </script>
+  </body>
 </html>

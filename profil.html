@@ -1,148 +1,327 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Profil siswa, rekap skor kuis, dan kelola data (backup/restore) — tersimpan di localStorage.">
-<title>Papan Skor | MathLab SMA</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>∑</text></svg>">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<div class="app">
-<aside class="sidebar">
-<div class="logo"><div class="logo-mark">∑</div><div><b>MathLab SMA</b><small>PLATFORM BELAJAR MATEMATIKA</small></div></div>
-<div class="side-label">MENU</div>
-<a class="side-link" href="index.html"><span class="ico">🏠</span> Beranda</a>
-<div class="side-label">MATERI KB 1–4</div>
-<a class="side-link" href="kb1.html"><span class="ico">📘</span> Fungsi Linear</a>
-<a class="side-link" href="kb2.html"><span class="ico">📐</span> Fungsi Kuadrat</a>
-<a class="side-link" href="kb3.html"><span class="ico">🔀</span> Komposisi &amp; Invers</a>
-<a class="side-link" href="kb4.html"><span class="ico">🎯</span> Program Linear</a>
-<div class="side-label">FITUR CEPAT</div>
-<a class="side-link" href="kb3.html#comp-kb3"><span class="ico">🔢</span> Kalkulator Komposisi</a>
-<a class="side-link" href="kb1.html#graph-kb1"><span class="ico">📈</span> Grafik Fungsi</a>
-<a class="side-link" href="kb3.html#quiz-kb3"><span class="ico">📝</span> Kuis Bertingkat <span class="pill">Gas!</span></a>
-<div class="side-label">LAINNYA</div>
-<a class="side-link active" href="profil.html"><span class="ico">🏆</span> Papan Skor</a>
-<a class="side-link" href="developer.html"><span class="ico">🧑‍💻</span> Profil Dev</a>
-<div class="target-card"><h4>Misi Minggu Ini</h4><p>Selesaikan kuis tingkat mudah &amp; sedang untuk membuka level sulit!</p><a class="btn" href="kb3.html#quiz-kb3">Mulai Kuis</a></div>
-</aside>
-<div class="main">
-<div class="topbar">
-<a class="btn ghost" href="index.html" aria-label="Kembali ke beranda">←</a>
-<div class="top-user"><div class="avatar">SW</div><div><b>Siswa Kelas X</b><small>Siswa • Kelas X</small></div></div>
-</div>
-<div class="content">
-<div class="page-head"><span class="kb-tag t-rose">PAPAN SKOR</span><h1 class="grad-text">Perkembangan Belajar</h1><p class="crumb"><a href="index.html">Beranda</a> / Papan Skor</p></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Profil siswa, rekap skor kuis, dan kelola data (backup/restore) — tersimpan di localStorage."
+    />
+    <title>Papan Skor | MathLab SMA</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>∑</text></svg>"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-mark">∑</div>
+          <div>
+            <b>MathLab SMA</b><small>PLATFORM BELAJAR MATEMATIKA</small>
+          </div>
+        </div>
+        <div class="side-label">MENU</div>
+        <a class="side-link" href="index.html"
+          ><span class="ico">🏠</span> Beranda</a
+        >
+        <div class="side-label">MATERI KB 1–4</div>
+        <a class="side-link" href="kb1.html"
+          ><span class="ico">📘</span> Fungsi Linear</a
+        >
+        <a class="side-link" href="kb2.html"
+          ><span class="ico">📐</span> Fungsi Kuadrat</a
+        >
+        <a class="side-link" href="kb3.html"
+          ><span class="ico">🔀</span> Komposisi &amp; Invers</a
+        >
+        <a class="side-link" href="kb4.html"
+          ><span class="ico">🎯</span> Program Linear</a
+        >
+        <div class="side-label">FITUR CEPAT</div>
+        <a class="side-link" href="kb3.html#comp-kb3"
+          ><span class="ico">🔢</span> Kalkulator Komposisi</a
+        >
+        <a class="side-link" href="kb1.html#graph-kb1"
+          ><span class="ico">📈</span> Grafik Fungsi</a
+        >
+        <a class="side-link" href="kb3.html#quiz-kb3"
+          ><span class="ico">📝</span> Kuis Bertingkat
+          <span class="pill">Gas!</span></a
+        >
+        <div class="side-label">LAINNYA</div>
+        <a class="side-link active" href="profil.html"
+          ><span class="ico">🏆</span> Papan Skor</a
+        >
+        <a class="side-link" href="developer.html"
+          ><span class="ico">🧑‍💻</span> Profil Dev</a
+        >
+        <div class="target-card">
+          <h4>Misi Minggu Ini</h4>
+          <p>
+            Selesaikan kuis tingkat mudah &amp; sedang untuk membuka level
+            sulit!
+          </p>
+          <a class="btn" href="kb3.html#quiz-kb3">Mulai Kuis</a>
+        </div>
+      </aside>
+      <div class="main">
+        <div class="topbar">
+          <a class="btn ghost" href="index.html" aria-label="Kembali ke beranda"
+            >←</a
+          >
+          <div class="top-user">
+            <div class="avatar">SW</div>
+            <div><b>Siswa Kelas X</b><small>Siswa • Kelas X</small></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="page-head">
+            <span class="kb-tag t-rose">PAPAN SKOR</span>
+            <h1 class="grad-text">Perkembangan Belajar</h1>
+            <p class="crumb"><a href="index.html">Beranda</a> / Papan Skor</p>
+          </div>
 
-<div class="card section">
-<h2>Profil Siswa</h2>
-<p class="note">Tersimpan otomatis di perangkat ini dan langsung tampil di pojok kanan atas semua halaman.</p>
-<div class="row"><div><label for="pf-nama">Nama</label><input type="text" id="pf-nama" maxlength="40" placeholder="mis. Vin Rumere"></div><div><label for="pf-kelas">Kelas</label><input type="text" id="pf-kelas" maxlength="10" placeholder="mis. X-1"></div></div>
-<div class="row mt10"><button class="btn" id="pf-save">Simpan Profil</button></div>
-</div>
+          <div class="card section">
+            <h2>Profil Siswa</h2>
+            <p class="note">
+              Tersimpan otomatis di perangkat ini dan langsung tampil di pojok
+              kanan atas semua halaman.
+            </p>
+            <div class="row">
+              <div>
+                <label for="pf-nama">Nama</label
+                ><input
+                  type="text"
+                  id="pf-nama"
+                  maxlength="40"
+                  placeholder="mis. Vin Rumere"
+                />
+              </div>
+              <div>
+                <label for="pf-kelas">Kelas</label
+                ><input
+                  type="text"
+                  id="pf-kelas"
+                  maxlength="10"
+                  placeholder="mis. X-1"
+                />
+              </div>
+            </div>
+            <div class="row mt10">
+              <button class="btn" id="pf-save">Simpan Profil</button>
+            </div>
+          </div>
 
-<div class="card section">
-<h2>Ringkasan Skor Lokal</h2>
-<p class="note">Skor terbaik per tingkat (kuis KB3 &amp; KB4), plus aktivitas membuka materi. KB1 &amp; KB2 hanya materi + contoh, tanpa kuis.</p>
-<div id="summary"><p class="muted">Memuat…</p></div>
-<div class="row mt10"><button class="btn ghost" id="btn-reset">Reset Skor &amp; Kemajuan</button><a class="btn secondary" href="index.html">Kembali</a></div>
-</div>
+          <div class="card section">
+            <h2>Ringkasan Skor Lokal</h2>
+            <p class="note">
+              Skor terbaik per tingkat (kuis KB3 &amp; KB4), plus aktivitas
+              membuka materi. KB1 &amp; KB2 hanya materi + contoh, tanpa kuis.
+            </p>
+            <div id="summary"><p class="muted">Memuat…</p></div>
+            <div class="row mt10">
+              <button class="btn ghost" id="btn-reset">
+                Reset Skor &amp; Kemajuan</button
+              ><a class="btn secondary" href="index.html">Kembali</a>
+            </div>
+          </div>
 
-<div class="card section">
-<h2>Data &amp; Penyimpanan</h2>
-<p class="note">Seluruh data (profil, skor, aktivitas) tersimpan dalam satu kunci <code>mathlab_db_v1</code> di <code>localStorage</code> browser — tidak dikirim ke server mana pun. Cadangkan atau pindahkan ke perangkat lain lewat berkas JSON.</p>
-<div class="row mt10"><button class="btn secondary" id="btn-export">⬇ Unduh Data (JSON)</button><button class="btn ghost" id="btn-import">⬆ Pulihkan dari Berkas</button><input type="file" id="file-import" accept=".json,application/json" hidden></div>
-</div>
+          <div class="card section">
+            <h2>Data &amp; Penyimpanan</h2>
+            <p class="note">
+              Seluruh data (profil, skor, aktivitas) tersimpan dalam satu kunci
+              <code>mathlab_db_v1</code> di <code>localStorage</code> browser —
+              tidak dikirim ke server mana pun. Cadangkan atau pindahkan ke
+              perangkat lain lewat berkas JSON.
+            </p>
+            <div class="row mt10">
+              <button class="btn secondary" id="btn-export">
+                ⬇ Unduh Data (JSON)</button
+              ><button class="btn ghost" id="btn-import">
+                ⬆ Pulihkan dari Berkas</button
+              ><input
+                type="file"
+                id="file-import"
+                accept=".json,application/json"
+                hidden
+              />
+            </div>
+          </div>
 
-<div class="pager"><a href="index.html">← Beranda</a><a href="developer.html">Profil Dev →</a></div>
-</div>
-<footer class="site">MathLab SMA — belajar matematika jadi seru ✨ • <a href="profil.html">Papan Skor</a> • <a href="developer.html">Profil Dev</a></footer>
-</div>
-</div>
-<script src="js/store.js"></script>
-<script src="js/shell.js"></script>
-<script>
-(function(){
-  var S=window.MTKStore;
-  if(!S){ document.getElementById('summary').innerHTML='<div class="alert error">Modul penyimpanan gagal dimuat.</div>'; return; }
+          <div class="pager">
+            <a href="index.html">← Beranda</a
+            ><a href="developer.html">Profil Dev →</a>
+          </div>
+        </div>
+        <footer class="site">
+          MathLab SMA — belajar matematika jadi seru ✨ •
+          <a href="profil.html">Papan Skor</a> •
+          <a href="developer.html">Profil Dev</a>
+        </footer>
+      </div>
+    </div>
+    <script src="js/store.js"></script>
+    <script src="js/shell.js"></script>
+    <script>
+      (function () {
+        var S = window.MTKStore;
+        if (!S) {
+          document.getElementById("summary").innerHTML =
+            '<div class="alert error">Modul penyimpanan gagal dimuat.</div>';
+          return;
+        }
 
-  var fmtDate=function(iso){ try{ return new Date(iso).toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'}); }catch(e){ return '-'; } };
+        var fmtDate = function (iso) {
+          try {
+            return new Date(iso).toLocaleDateString("id-ID", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            });
+          } catch (e) {
+            return "-";
+          }
+        };
 
-  /* --- Profil --- */
-  var inNama=document.getElementById('pf-nama'), inKelas=document.getElementById('pf-kelas');
-  function loadProfile(){ var p=S.profile(); inNama.value=p.nama; inKelas.value=p.kelas; }
-  document.getElementById('pf-save').addEventListener('click',function(){
-    S.setProfile({nama:inNama.value, kelas:inKelas.value});
-    loadProfile();
-    if(window.MTKShell) window.MTKShell.refreshProfile();
-    if(window.MTKShell) window.MTKShell.toast('Profil tersimpan ✓','ok');
-  });
+        /* --- Profil --- */
+        var inNama = document.getElementById("pf-nama"),
+          inKelas = document.getElementById("pf-kelas");
+        function loadProfile() {
+          var p = S.profile();
+          inNama.value = p.nama;
+          inKelas.value = p.kelas;
+        }
+        document
+          .getElementById("pf-save")
+          .addEventListener("click", function () {
+            S.setProfile({ nama: inNama.value, kelas: inKelas.value });
+            loadProfile();
+            if (window.MTKShell) window.MTKShell.refreshProfile();
+            if (window.MTKShell)
+              window.MTKShell.toast("Profil tersimpan ✓", "ok");
+          });
 
-  /* --- Ringkasan --- */
-  function render(){
-    var html='<div class="two">';
-    S.ALL_KBS.forEach(function(kb){
-      html+='<div class="card"><h3>'+S.KB_NAMES[kb]+'</h3>';
-      if(S.QUIZ_KBS.indexOf(kb)>=0){
-        S.LEVELS.forEach(function(lv){
-          var r=S.levelRecord(kb,lv);
-          html+='<p class="tight">'+lv.charAt(0).toUpperCase()+lv.slice(1)+': <b>'+(r.best==null?'—':r.best+'%')+'</b>'
-            +(r.attempts?(' • '+r.attempts+'× percobaan'+(r.last?' • terakhir '+fmtDate(r.last):'')):' • belum dikerjakan')+'</p>';
+        /* --- Ringkasan --- */
+        function render() {
+          var html = '<div class="two">';
+          S.ALL_KBS.forEach(function (kb) {
+            html += '<div class="card"><h3>' + S.KB_NAMES[kb] + "</h3>";
+            if (S.QUIZ_KBS.indexOf(kb) >= 0) {
+              S.LEVELS.forEach(function (lv) {
+                var r = S.levelRecord(kb, lv);
+                html +=
+                  '<p class="tight">' +
+                  lv.charAt(0).toUpperCase() +
+                  lv.slice(1) +
+                  ": <b>" +
+                  (r.best == null ? "—" : r.best + "%") +
+                  "</b>" +
+                  (r.attempts
+                    ? " • " +
+                      r.attempts +
+                      "× percobaan" +
+                      (r.last ? " • terakhir " + fmtDate(r.last) : "")
+                    : " • belum dikerjakan") +
+                  "</p>";
+              });
+            } else {
+              var m = S.materi(kb);
+              html +=
+                '<p class="tight">' +
+                (m.visited
+                  ? "✓ Sudah dibuka (" + m.opens + "×)"
+                  : "Belum dibuka") +
+                "</p>";
+            }
+            html += "</div>";
+          });
+          html += "</div>";
+          document.getElementById("summary").innerHTML = html;
+        }
+
+        /* --- Reset skor --- */
+        document
+          .getElementById("btn-reset")
+          .addEventListener("click", function () {
+            if (
+              !confirm(
+                "Hapus semua skor & data aktivitas? (Profil tetap tersimpan)",
+              )
+            )
+              return;
+            var ok = S.resetScores();
+            if (window.MTKShell)
+              window.MTKShell.toast(
+                ok
+                  ? "Skor & kemajuan berhasil direset."
+                  : "Gagal mengakses penyimpanan.",
+                ok ? "ok" : "error",
+              );
+            render();
+          });
+
+        /* --- Ekspor / Impor --- */
+        document
+          .getElementById("btn-export")
+          .addEventListener("click", function () {
+            var blob = new Blob([S.exportJSON()], { type: "application/json" });
+            var a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "mathlab-data.json";
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(function () {
+              URL.revokeObjectURL(a.href);
+            }, 2000);
+            if (window.MTKShell)
+              window.MTKShell.toast(
+                "Berkas mathlab-data.json sedang diunduh",
+                "ok",
+              );
+          });
+        var fileIn = document.getElementById("file-import");
+        document
+          .getElementById("btn-import")
+          .addEventListener("click", function () {
+            fileIn.click();
+          });
+        fileIn.addEventListener("change", function () {
+          var f = fileIn.files && fileIn.files[0];
+          if (!f) return;
+          var reader = new FileReader();
+          reader.onload = function () {
+            if (S.importJSON(String(reader.result))) {
+              loadProfile();
+              if (window.MTKShell) window.MTKShell.refreshProfile();
+              render();
+              if (window.MTKShell)
+                window.MTKShell.toast(
+                  "Data berhasil dipulihkan dari berkas ✓",
+                  "ok",
+                );
+            } else {
+              if (window.MTKShell)
+                window.MTKShell.toast(
+                  "Berkas tidak valid — impor dibatalkan",
+                  "error",
+                );
+            }
+            fileIn.value = "";
+          };
+          reader.onerror = function () {
+            if (window.MTKShell)
+              window.MTKShell.toast("Gagal membaca berkas", "error");
+          };
+          reader.readAsText(f);
         });
-      }else{
-        var m=S.materi(kb);
-        html+='<p class="tight">'+(m.visited?('✓ Sudah dibuka ('+m.opens+'×)'):'Belum dibuka')+'</p>';
-      }
-      html+='</div>';
-    });
-    html+='</div>';
-    document.getElementById('summary').innerHTML=html;
-  }
 
-  /* --- Reset skor --- */
-  document.getElementById('btn-reset').addEventListener('click',function(){
-    if(!confirm('Hapus semua skor & data aktivitas? (Profil tetap tersimpan)')) return;
-    var ok=S.resetScores();
-    if(window.MTKShell) window.MTKShell.toast(ok?'Skor & kemajuan berhasil direset.':'Gagal mengakses penyimpanan.', ok?'ok':'error');
-    render();
-  });
-
-  /* --- Ekspor / Impor --- */
-  document.getElementById('btn-export').addEventListener('click',function(){
-    var blob=new Blob([S.exportJSON()],{type:'application/json'});
-    var a=document.createElement('a');
-    a.href=URL.createObjectURL(blob);
-    a.download='mathlab-data.json';
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(function(){ URL.revokeObjectURL(a.href); },2000);
-    if(window.MTKShell) window.MTKShell.toast('Berkas mathlab-data.json sedang diunduh','ok');
-  });
-  var fileIn=document.getElementById('file-import');
-  document.getElementById('btn-import').addEventListener('click',function(){ fileIn.click(); });
-  fileIn.addEventListener('change',function(){
-    var f=fileIn.files && fileIn.files[0];
-    if(!f) return;
-    var reader=new FileReader();
-    reader.onload=function(){
-      if(S.importJSON(String(reader.result))){
         loadProfile();
-        if(window.MTKShell) window.MTKShell.refreshProfile();
         render();
-        if(window.MTKShell) window.MTKShell.toast('Data berhasil dipulihkan dari berkas ✓','ok');
-      }else{
-        if(window.MTKShell) window.MTKShell.toast('Berkas tidak valid — impor dibatalkan','error');
-      }
-      fileIn.value='';
-    };
-    reader.onerror=function(){ if(window.MTKShell) window.MTKShell.toast('Gagal membaca berkas','error'); };
-    reader.readAsText(f);
-  });
-
-  loadProfile();
-  render();
-})();
-</script>
-</body>
+      })();
+    </script>
+  </body>
 </html>
