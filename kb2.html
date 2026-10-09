@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="KB2 Fungsi Kuadrat: parabola, diskriminan, GeoGebra, grafik offline, dan contoh soal."
+      content="KB2 Fungsi Kuadrat: parabola, diskriminan, grafik offline, dan contoh soal."
     />
     <title>KB2 — Fungsi Kuadrat | MathLab SMA</title>
     <link
@@ -105,52 +105,8 @@
               = ±2. Puncak (0,−4). f(2) = 0.
             </p>
           </div>
-          <div class="card section" id="geogebra-kb2">
-            <h2>2. Grafik GeoGebra (online) + Fallback Offline</h2>
-            <p class="note">
-              Geser slider / ketik fungsi di GeoGebra saat online. Koneksi
-              diperiksa otomatis: tanpa internet, grafik canvas di bawah yang
-              aktif.
-            </p>
-            <p class="geo-status" id="geoStatus">
-              <span class="geo-dot"></span
-              ><span id="geoStatusText">Memeriksa koneksi GeoGebra…</span>
-            </p>
-            <div class="frame" id="geoFrameWrap">
-              <iframe
-                id="geoFrame"
-                src="about:blank"
-                width="100%"
-                height="420"
-                loading="lazy"
-                title="GeoGebra Fungsi Kuadrat"
-                sandbox="allow-scripts allow-same-origin"
-              ></iframe>
-            </div>
-            <div class="geo-offline" id="geoOffline" hidden>
-              <p>
-                <b>GeoGebra tidak dapat dimuat</b> — tanpa internet atau
-                geogebra.org diblokir jaringan.
-              </p>
-              <p>
-                Grafik fungsi di bawah tetap jalan <b>100% offline</b> di
-                canvas:
-              </p>
-              <p>
-                <a class="btn" href="#graph-kb2">Buka Grafik Offline ↓</a>
-                <button class="btn ghost" id="geoRetry" type="button">
-                  Muat ulang GeoGebra
-                </button>
-              </p>
-            </div>
-            <p class="note">
-              Sumber embed: GeoGebra (satu arah). Tanpa internet iframe
-              disembunyikan otomatis — tanpa error, cukup pakai canvas offline
-              di bawah.
-            </p>
-          </div>
           <div class="card section" id="graph-kb2">
-            <h2>3. Grafik Fungsi (offline, canvas)</h2>
+            <h2>2. Grafik Fungsi (offline, canvas)</h2>
             <p class="note">
               Coba parabola: <code>x^2-4</code>, <code>x^2-4*x+3</code>,
               <code>-x^2+5</code>.
@@ -184,7 +140,7 @@
             <div data-graph-vals></div>
           </div>
           <div class="card section" id="contoh-kb2">
-            <h2>4. Contoh Soal (dibahas tuntas)</h2>
+            <h2>3. Contoh Soal (dibahas tuntas)</h2>
             <p>
               <b>Soal:</b> Diketahui f(x) = x² − 4x + 3. Tentukan pembuat nol,
               sumbu simetri, dan titik puncak.
@@ -200,7 +156,7 @@
             </p>
           </div>
           <div class="card section" id="quiz-kb2">
-            <h2>5. Soal Bertingkat</h2>
+            <h2>4. Soal Bertingkat</h2>
             <div class="tabs" data-quiz-tabs></div>
             <div data-quiz-body></div>
             <div data-quiz-foot></div>
@@ -220,7 +176,6 @@
     <script src="js/quiz.js"></script>
     <script src="js/graph.js"></script>
     <script src="js/shell.js"></script>
-    <script src="js/geogebra.js"></script>
     <script>
       MTKGraph.bind("graph-kb2");
       MTKQuiz.bind("quiz-kb2", "kb2");

@@ -174,16 +174,7 @@ select{cursor:pointer}
 .row>*{flex:1;min-width:140px}
 .grid-comp{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
 .legend{font-size:.85rem;color:var(--muted);margin:2px 0 2px}
-.frame{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
-.frame iframe{border:0;display:block;width:100%;height:420px}
 .note{color:var(--muted);font-size:.88rem}
-.geo-status{display:flex;align-items:center;gap:8px;font-size:.85rem;margin:8px 0 10px;color:var(--muted)}
-.geo-dot{width:10px;height:10px;border-radius:50%;background:var(--peach);flex:none}
-.geo-status.online .geo-dot{background:var(--mint)}
-.geo-status.offline .geo-dot{background:var(--danger)}
-.geo-offline{border:1px dashed var(--line);border-radius:14px;padding:14px 16px;margin:10px 0;background:var(--card)}
-.geo-offline p{margin:6px 0}
-.geo-offline .btn{margin-right:8px}
 canvas.plot{width:100%;height:320px;background:var(--card);border:1px solid var(--line);border-radius:14px;display:block}
 .val-wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
 .val-table{border-collapse:collapse;font-size:.85rem;background:var(--card)}
