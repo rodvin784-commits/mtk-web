@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MathLab SMA — dashboard belajar matematika: materi KB 1–4, grafik fungsi, kalkulator komposisi, dan kuis bertingkat.">
+<title>MathLab SMA — Dashboard</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>∑</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+<div class="logo"><div class="logo-mark">∑</div><div><b>MathLab SMA</b><small>PLATFORM BELAJAR MATEMATIKA</small></div></div>
+<div class="side-label">MENU</div>
+<a class="side-link active" href="index.html"><span class="ico">🏠</span> Beranda</a>
+<div class="side-label">MATERI KB 1–4</div>
+<a class="side-link" href="kb1.html"><span class="ico">📘</span> Fungsi Linear</a>
+<a class="side-link" href="kb2.html"><span class="ico">📐</span> Fungsi Kuadrat</a>
+<a class="side-link" href="kb3.html"><span class="ico">🔀</span> Komposisi &amp; Invers</a>
+<a class="side-link" href="kb4.html"><span class="ico">🎯</span> Program Linear</a>
+<div class="side-label">FITUR CEPAT</div>
+<a class="side-link" href="kb3.html#comp-kb3"><span class="ico">🔢</span> Kalkulator Komposisi</a>
+<a class="side-link" href="kb1.html#graph-kb1"><span class="ico">📈</span> Grafik Fungsi</a>
+<a class="side-link" href="kb3.html#quiz-kb3"><span class="ico">📝</span> Kuis Bertingkat <span class="pill">Gas!</span></a>
+<div class="side-label">LAINNYA</div>
+<a class="side-link" href="profil.html"><span class="ico">🏆</span> Papan Skor</a>
+<a class="side-link" href="developer.html"><span class="ico">🧑‍💻</span> Profil Dev</a>
+<div class="target-card"><h4>Misi Minggu Ini</h4><p>Selesaikan kuis tingkat mudah &amp; sedang untuk membuka level sulit!</p><a class="btn" href="kb3.html#quiz-kb3">Mulai Kuis</a></div>
+</aside>
+<div class="main">
+<div class="topbar">
+<div class="search">🔍 <input data-search type="text" placeholder="Mau belajar apa hari ini? Cari di sini…" aria-label="Cari materi"></div>
+<div class="top-user"><div class="avatar">SW</div><div><b>Siswa Kelas X</b><small>Dashboard</small></div></div>
+</div>
+<div class="content">
+<div class="welcome">
+<div class="math-bg" aria-hidden="true"><span>x²</span><span>∑</span><span>f(x)</span></div>
+<h1>Selamat datang, Pejuang Matematika 👋</h1>
+<p>Mari lanjutkan pembelajaranmu. Fungsi Linear tinggal 2 langkah lagi selesai!</p>
+<div class="welcome-actions">
+<a class="btn accent" href="kb1.html">▶ Lanjut Belajar</a>
+<a class="btn outline" href="kb3.html#quiz-kb3">Ikuti Kuis</a>
+</div>
+</div>
+<div class="stats">
+<div class="stat"><div class="stat-ico tint-blue">📘</div><div><small>Materi Dipelajari</small><b class="big" id="stMateri">0</b><div class="trend" id="stMateriSub">0 dari 4 modul</div></div></div>
+<div class="stat"><div class="stat-ico tint-violet">📝</div><div><small>Kuis Diselesaikan</small><b class="big" id="stQuiz">0</b><div class="trend" id="stQuizSub">0 level selesai</div></div></div>
+<div class="stat"><div class="stat-ico tint-mint">🏆</div><div><small>Total Skor</small><b class="big" id="stScore">0</b><div class="trend" id="stScoreSub">0 poin</div></div></div>
+<div class="stat"><div class="stat-ico tint-peach">🎯</div><div><small>Kemajuan</small><b class="big" id="stProg">0%</b><div class="bar"><i id="stProgBar" style="width:0%"></i></div></div></div>
+</div>
+<div class="cols">
+<div class="card">
+<div class="card-head"><h3>Kemajuan Belajar</h3>
+<div class="donut" title="Skor rata-rata keseluruhan">
+<svg viewBox="0 0 84 84" aria-hidden="true"><defs><linearGradient id="dgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6d7ef7"/><stop offset="1" stop-color="#9d8cff"/></linearGradient></defs><circle class="donut-bg" cx="42" cy="42" r="34"/><circle class="donut-fg" id="donutFg" cx="42" cy="42" r="34"/></svg><b class="donut-val" id="donutVal">0%</b></div>
+</div>
+<div id="progList"></div>
+</div>
+<div class="card">
+<div class="card-head"><h3>Akses Cepat</h3></div>
+<a class="qa" href="kb3.html#comp-kb3"><div class="qa-ico tint-violet">🔢</div><div><b>Kalkulator Komposisi</b><small>Hitung (f∘g)…(h∘g∘f) langkah demi langkah</small></div></a>
+<a class="qa" href="kb1.html#graph-kb1"><div class="qa-ico tint-blue">📈</div><div><b>Grafik Fungsi</b><small>Gambar grafik offline tanpa internet</small></div></a>
+<a class="qa" href="kb1.html#contoh-kb1"><div class="qa-ico tint-peach">✏️</div><div><b>Contoh Soal</b><small>Dibahas tuntas di setiap KB</small></div></a>
+</div>
+</div>
+<div class="card section">
+<div class="card-head"><h3>Perkembangan Belajar</h3><small class="muted">Skor tersimpan otomatis di perangkatmu</small></div>
+<div class="kb-grid" id="kbGrid">
+<div class="card kb-card" data-name="profil perkembangan skor leaderboard papan skor"><span class="kb-tag t-rose">PROFIL</span><h3>Perkembangan</h3><p>Skor tersimpan lokal &amp; reset.</p><a class="btn secondary" href="profil.html">Lihat Profil →</a></div>
+</div>
+</div>
+<div class="card section">
+<h3>Contoh cepat dari papan tulis</h3>
+<p>f(x) = x+3, g(x) = 4x+5, h(x) = 3x−9 ⇒ <code>(f∘g)(x) = 4x+8</code>, <code>(g∘f)(x) = 4x+17</code>. Coba di <a href="kb3.html#comp-kb3"><b>kalkulator KB3</b></a>.</p>
+</div>
+</div>
+<footer class="site">MathLab SMA — belajar matematika jadi seru ✨ • <a href="profil.html">Papan Skor</a> • <a href="developer.html">Profil Dev</a></footer>
+</div>
+</div>
+<script src="js/store.js"></script>
+<script src="js/shell.js"></script>
+<script>
+(function(){
+  var S=window.MTKStore;
+  if(!S){ return; }
+  var s=S.summary();
+  /* Statistik utama (counter naik) */
+  var cnt=function(id,v,suf){ var el=document.getElementById(id); if(!el) return;
+    if(window.MTKShell&&window.MTKShell.countUp) window.MTKShell.countUp(el,v,suf||'');
+    else el.textContent=v+(suf||''); };
+  cnt('stMateri',s.materiOpened);
+  document.getElementById('stMateriSub').textContent=s.materiOpened+' dari '+s.materiTotal+' modul dibuka';
+  cnt('stQuiz',s.quizLevelsDone);
+  document.getElementById('stQuizSub').textContent=s.quizLevelsDone+' dari '+s.totalLevels+' level kuis';
+  cnt('stScore',s.totalBest);
+  document.getElementById('stScoreSub').textContent=s.totalBest+' poin (akumulasi terbaik)';
+  cnt('stProg',s.progress,'%');
+  document.getElementById('stProgBar').style.width=s.progress+'%';
+  /* Donut progress */
+  var fg=document.getElementById('donutFg'), dv=document.getElementById('donutVal');
+  if(fg){ var C=2*Math.PI*34; fg.style.strokeDasharray=C; fg.style.strokeDashoffset=C;
+    setTimeout(function(){ fg.style.strokeDashoffset=C*(1-s.progress/100); },150); }
+  if(dv){ if(window.MTKShell&&window.MTKShell.countUp) window.MTKShell.countUp(dv,s.progress,'%'); else dv.textContent=s.progress+'%'; }
+  /* Daftar progres per KB */
+  var rows='';
+  S.ALL_KBS.forEach(function(kb){
+    var info=s.perKB[kb], pct, label, extra, status;
+    if(S.QUIZ_KBS.indexOf(kb)>=0){
+      pct=info.avg;
+      label=S.KB_NAMES[kb];
+      extra=info.done?(' • '+info.done+'/'+S.LEVELS.length+' level'):' • belum dikerjakan';
+      status=(info.done>=S.LEVELS.length)?'done':((info.done>0||pct>0)?'prog':'todo');
+    }else{
+      pct=info.visited?100:0;
+      label=S.KB_NAMES[kb];
+      extra=info.visited?(' • dibuka '+info.opens+'×'):' • belum dibuka';
+      status=info.visited?'done':'todo';
+    }
+    rows+='<div class="prog-row st-'+status+'"><div class="prog-top"><span>'+label+'<small class="muted">'+extra+'</small></span>'
+        +'<span class="pct">'+(pct>0? (S.QUIZ_KBS.indexOf(kb)>=0? pct+'%' : '✓') : '—')+'</span></div>'
+        +'<div class="bar"><i style="width:'+pct+'%"></i></div></div>';
+  });
+  rows+='<p class="prog-note">Skor = nilai terbaik per tingkat kuis; tersimpan otomatis di perangkatmu.</p>';
+  document.getElementById('progList').innerHTML=rows;
+})();
+</script>
+</body>
+</html>

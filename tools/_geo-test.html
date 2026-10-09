@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>geogebra probe</title>
+</head>
+<body>
+<h1>GeoGebra iframe probe</h1>
+<pre id="log">memuat…</pre>
+<div class="frame">
+<iframe id="gg" src="https://www.geogebra.org/graphing/bvj8o7mt" width="100%" height="420" loading="lazy" title="GeoGebra Fungsi Kuadrat" sandbox="allow-scripts allow-same-origin"></iframe>
+</div>
+<script>
+var lines = [];
+function L(s){ lines.push(s); var el=document.getElementById('log'); if(el) el.textContent = lines.join('\n'); }
+var ifr = document.getElementById('gg');
+ifr.addEventListener('load', function(){
+  L('IFRAME LOAD fired');
+  L('contentWindow=' + (ifr.contentWindow ? 'ok' : 'null'));
+  try { L('contentDocument=' + (ifr.contentDocument ? 'accessible' : 'null')); } catch(e) { L('contentDocument=blocked (' + e.message + ')'); }
+});
+ifr.addEventListener('error', function(){ L('IFRAME ERROR event fired'); });
+window.addEventListener('error', function(e){ L('WINDOW ERROR: ' + (e.message || e.type)); });
+window.addEventListener('unhandledrejection', function(e){ L('PROMISE REJECTION: ' + (e.reason && e.reason.message ? e.reason.message : String(e.reason))); });
+var probe = null;
+try {
+  if (window.fetch) {
+    var ctrl = new AbortController();
+    var to = setTimeout(function(){ ctrl.abort(); }, 7000);
+    probe = fetch('https://www.geogebra.org/graphing/bvj8o7mt', {method:'HEAD', mode:'no-cors', cache:'no-store', signal: ctrl.signal})
+      .then(function(){ clearTimeout(to); L('FETCH PROBE: online (no-cors ok)'); })
+      .catch(function(err){ clearTimeout(to); L('FETCH PROBE: offline/blocked (' + (err.name || err.message) + ')'); });
+  } else { L('fetch tidak tersedia'); }
+} catch(e) { L('FETCH PROBE exception: ' + e.message); }
+setTimeout(function(){ L('TIMER 9s: iframe masih di DOM=' + !!document.getElementById('gg')); }, 9000);
+</script>
+</body>
+</html>
